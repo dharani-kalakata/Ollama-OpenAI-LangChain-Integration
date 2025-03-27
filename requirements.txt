@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+requests
+pydantic
+python-dotenv>=1.0.0
+langchain>=0.0.267
+langchain-openai>=0.0.2
+langchain-community>=0.0.10
+langchain-ollama
+openai>=1.0.0
+tiktoken>=0.4.0
