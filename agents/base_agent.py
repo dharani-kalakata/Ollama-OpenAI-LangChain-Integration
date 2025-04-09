@@ -17,3 +17,18 @@ class BaseAgent(ABC):
                         **kwargs):
         """Run the agent with streaming output."""
         pass
+
+    class AnotherAgent(BaseAgent):
+    """Another agent class."""
+    
+    async def run(self, 
+                  input_data: Dict[str, Any], 
+                  **kwargs) -> Dict[str, Any]:
+        # Intentional mistake: Not handling potential KeyError
+        return {"result": input_data["key"]}
+
+    async def stream_run(self, 
+                        input_data: Dict[str, Any], 
+                        **kwargs):
+        # Intentional mistake: Missing return type hint
+        yield "Streaming data"
