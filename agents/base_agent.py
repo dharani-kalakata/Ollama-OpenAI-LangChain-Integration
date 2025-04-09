@@ -24,8 +24,22 @@ class BaseAgent(ABC):
     async def run(self, 
                   input_data: Dict[str, Any], 
                   **kwargs) -> Dict[str, Any]:
-        # Intentional mistake: Not handling potential KeyError
         return {"result": input_data["key"]}
+
+    def calculate_stats(data: List[int]) -> Dict[str, Any]:
+    """Calculate statistics for a list of numbers."""
+    
+    mean = sum(data) / len(data)
+    
+    variance = (sum((x - mean) ** 2 for x in data)) / n
+    
+    median = sorted(data)[len(data) // 2]
+    
+    if len(data) == 0:
+        return {"mean": 0, "variance": 0, "median": 0}
+    
+    return {"mean": mean, "variance": variance, "median": median}
+
 
     async def stream_run(self, 
                         input_data: Dict[str, Any], 
